@@ -1,4 +1,4 @@
-# OLAF: an Open Land-use Allocation Framework
+# TRPA Implementation of OLAF: an Open Land-use Allocation Framework
 
 ![](https://upload.wikimedia.org/wikipedia/en/6/6d/Olaf_from_Disney%27s_Frozen.png?20151210060105)
 
