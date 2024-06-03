@@ -16,7 +16,7 @@ def load_yaml(filename):
 import time
 import random
 
-def read_biogeme_params(data_path):
+def read_params(data_path):
   params = {}
   try:
     # Read data from CSV assuming header=None (no header row)
@@ -64,14 +64,14 @@ class model:
         # This method allocates land use control totals using Monte Carlo simulation
         id = self.config['geo_id']
         #dev_queue = [] # enumerate a "queue" of development projects to build
-        queue_len = 0
+        to_allocate = 0
         position = 0
         progress = 0
         _last_part = 0
         print("Allocating queue...")
 
         for LU in self.land_uses:
-           queue_len += int(self.land_uses[LU]["total"])
+           to_allocate += int(self.land_uses[LU]["total"])
            store_fld = self.land_uses[LU]["store_fld"]
            self.zone_df[store_fld] = 0 # initialize field to which units will be allocated
            print("Total {} units of {} to allocate".format(self.land_uses[LU]['total'],self.land_uses[LU]['name']))
@@ -86,9 +86,8 @@ class model:
             #print("Enumerating " + self.land_uses[LU]['name'] + " to allocate")
             
             store_fld = self.land_uses[LU]["store_fld"]
-            value_fn = self.land_uses[LU]["value_fn"]
             options = self.sample_alts(LU)
-            params = read_biogeme_params(self.land_uses[LU]['dev_para_file'])
+            params = read_params(self.land_uses[LU]['value_par'])
             utility = calculate_utility(params, options)
             #utility = options.eval(value_fn,inplace=False).to_numpy()
             expUtil = np.exp(utility)
@@ -102,14 +101,13 @@ class model:
             self.zone_df.at[zoneSel,store_fld] += alloc
             self.land_uses[LU]["total"]=self.land_uses[LU]["total"]-alloc
 
-            remaining = int(self.land_uses[LU]["total"])
+            #remaining = int(self.land_uses[LU]["total"])
             #print("Remaining {} {}  to allocate".format(self.land_uses[LU]['total'] , self.land_uses[LU]['name']))
             if self.land_uses[LU]["total"]==0:
                self.land_uses.pop(LU, None)            
             
-
             position = position + alloc
-            progress = round(100*(position)/queue_len,0)
+            progress = round(100*(position)/to_allocate,0)
             part = round((progress % 10)/2,0)
             if part != _last_part:
                 if part == 0:
@@ -134,6 +132,4 @@ def main():
     test_model.zone_df.to_csv(sys.argv[2], index=False)
 
 if __name__=="__main__":
-    import os
-    os.chdir(r'.\OLAF-TRPA')
     main()
