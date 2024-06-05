@@ -22,10 +22,9 @@ def read_biogeme_params(data_path):
     # Read data from CSV assuming header=None (no header row)
     data = pd.read_csv(data_path)
     
-    for k, v in zip(data['fields'], data['Value']):
-      if k.startswith('B_'):
-        param_name = k[2:]
-        params[param_name] =  params.get(param_name, 0)+float(v)  # Assuming numeric values
+    for k, v in zip(data['x'], data['Value']):
+      param_name = k
+      params[param_name] =  params.get(param_name, 0)+float(v)  # Assuming numeric values
   except FileNotFoundError:
     print(f"Error: File not found at {data_path}")
   return params

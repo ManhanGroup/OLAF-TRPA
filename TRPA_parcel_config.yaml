@@ -1,7 +1,7 @@
 model_name: "demonstration model"
 model_version: 0.1
 scenario_name: "test scenario"
-zonal_data: "../data/parcels_2010forolaf.csv" 
+zonal_data: "../data/parcels_2020forolaf.csv" 
 geo_id: "APN"
 draws: 30
 filter_Undevelopable: "devstatus!='Undevelopable'"
