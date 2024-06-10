@@ -2,6 +2,8 @@ model_name: "TRPA OLAF model"
 model_version: 0.4
 scenario_name: "test scenario"
 zonal_data: "../data/parcels_2020forolaf.csv" 
+neighbors: "../data/neighbors.npy"
+year: 2025
 geo_id: "APN"
 draws: 30
 filter_Undevelopable: "devstatus!='Undevelopable'"
@@ -14,7 +16,7 @@ land_uses:
     # filter is passed to DataFrame.query(); value is passed to DataFrame.eval()
     filter_fn: "(SFDU_growth + UNITS) == 0 & devstatus=='SF'" # can only allocate to parcels that don"t have anything
     total: 638
-    value_par: "../data/sf_development_model.csv"
+    value_par: "./devmodel/sf_development_model.csv"
     capacity_fn: 1
   MFDU_growth:
     name: "multi-family dwelling units (growth)"
@@ -23,20 +25,22 @@ land_uses:
     # filter is passed to DataFrame.query(); value is passed to DataFrame.eval()
     filter_fn: "(MFDU_growth+UNITS) == 0 & devstatus=='MF'" # allocate to parcels that didn"t have anything in the base (but can keep allocating)
     total: 550
-    value_par: "../data/mf_development_model.csv"
+    value_par: "./devmodel/mf_development_model.csv"
     capacity_fn: "usableland*DENSITY/43560"
   JOBS:
     name: "employment"
     market: "business"
-    store_fld: "JOBS_alloc"
+    store_fld: "JOBS_growth"
     filter_fn: "BUILDING_SQFT==0 & devstatus=='NR'"
     total: 308
-    value_par: "../data/nr_development_model.csv"
-    capacity_fn: 1
+    value_par: "./devmodel/nr_development_model.csv"
+    capacity_fn:  "usableland*1000/43560"
 
 # these lines are passed to DataFrame.eval() after allocation
 update_block: [
-  "SFDU_alloc = SFDU_growth",
-  "MFDU_alloc = MFDU_growth",
-  "BUILDING_SQFT=BUILDING_SQFT+neighbors_bldsqft_per_unit*(SFDU_alloc+MFDU_alloc+JOBS_alloc)"  
+  "NRUNITS = 1*(JOBS_growth>0)",  #asuuming if there is job, there is a new building
+  "BUILDING_SQFT=BUILDING_SQFT+neighbors_bldsqft_per_unit.fillna(1500)*(SFDU_growth+MFDU_growth)+JOBS_growth*1000",  #1000 is the sqft per job, a placeholder for more accurate data
+  "UNITS = UNITS+SFDU_growth+MFDU_growth+NRUNITS",
+  
+
 ]
