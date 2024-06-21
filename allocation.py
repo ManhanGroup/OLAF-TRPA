@@ -16,29 +16,6 @@ def load_yaml(filename):
 import time
 import random
 
-def read_params(data_path):
-  params = {}
-  try:
-    # Read data from CSV assuming header=None (no header row)
-    data = pd.read_csv(data_path)
-    
-    for k, v in zip(data['x'], data['Value']):
-      param_name = k
-      params[param_name] =  params.get(param_name, 0)+float(v)  # Assuming numeric values
-  except FileNotFoundError:
-    print(f"Error: File not found at {data_path}")
-  return params
-
-
-def calculate_utility(params, parcel_frame):
-  utility = 0
-  for col, value in params.items():
-    if col in parcel_frame.columns:
-      utility += value * parcel_frame[col]
-    
-  return utility
-
-
 class model:
     def __init__(self,config):
         # The initialization code should read a YAML config file and use it to define the basic parameters of the model
@@ -87,14 +64,13 @@ class model:
             #print("Enumerating " + self.land_uses[LU]['name'] + " to allocate")
             
             store_fld = self.land_uses[LU]["store_fld"]
+            value_fn=self.land_uses[LU]["value_fn"]
             options = self.sample_alts(LU)
-            params = read_params(self.land_uses[LU]['value_par'])
-            utility = calculate_utility(params, options)
-            #utility = options.eval(value_fn,inplace=False).to_numpy()
+            utility = options.eval(value_fn,inplace=False).to_numpy()
             expUtil = np.exp(utility)
             denom = np.sum(expUtil)
             probs = expUtil/denom
-            zoneSel = rng.choice(options.index,p=probs.fillna(0))
+            zoneSel = rng.choice(options.index,p=np.nan_to_num(probs))
             if self.land_uses[LU]["capacity_fn"]==1:
                alloc = 1
             else: 

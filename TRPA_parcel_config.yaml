@@ -16,7 +16,7 @@ land_uses:
     # filter is passed to DataFrame.query(); value is passed to DataFrame.eval()
     filter_fn: "(SFDU_growth + UNITS) == 0 & devstatus=='SF'" # can only allocate to parcels that don"t have anything
     total: 638
-    value_par: "./devmodel/sf_development_model.csv"
+    value_fn: "IPES_SCORE_n*0.2873365648197304+cnt_intersections_n*0.9943690416762624+dist2stop_n*-0.0038680687379315+dist2tahoe_n*2.838699434833784+is_towncenter*-1.2023536187245312+isbailey3*0.4278487727702863+isbailey4p*0.4521634391975973+job_density_n*0.6009244986270196+lval_per_sqft_n*10.142419515839576+mix_entropy*-0.9881611626125364+neighbors_FAR*-3.652635420808193+neighbors_age_n*1.3338710272973375+neighbors_per_built*2.151473850390416+pop_density_n*-0.004593307994374"
     capacity_fn: 1
   MFDU_growth:
     name: "multi-family dwelling units (growth)"
@@ -25,7 +25,7 @@ land_uses:
     # filter is passed to DataFrame.query(); value is passed to DataFrame.eval()
     filter_fn: "(MFDU_growth+UNITS) == 0 & devstatus=='MF'" # allocate to parcels that didn"t have anything in the base (but can keep allocating)
     total: 550
-    value_par: "./devmodel/mf_development_model.csv"
+    value_fn: "IPES_SCORE_n*0.2873365648197304+cnt_intersections_n*-0.8935616543654461+dist2stop_n*-0.01178493801472+dist2tahoe_n*-14.503269372751925+is_towncenter*3.0381686521446936+isbailey3*0.4278487727702863+isbailey4p*0.4521634391975973+job_density_n*-0.6052949264851307+lval_per_sqft_n*-1.3106356762192766+mix_entropy*-1.1504218499421712+neighbors_FAR*3.3977281575993+neighbors_age_n*-0.5987107125356769+neighbors_per_built*-3.0915288046454195+pop_density_n*0.8166006793889279"
     capacity_fn: "usableland*DENSITY/43560"
   JOBS:
     name: "employment"
@@ -33,8 +33,8 @@ land_uses:
     store_fld: "JOBS_growth"
     filter_fn: "BUILDING_SQFT==0 & devstatus=='NR'"
     total: 308
-    value_par: "./devmodel/nr_development_model.csv"
-    capacity_fn:  "usableland*1000/43560"
+    value_fn: "IPES_SCORE_n*0.2873365648197304+cnt_intersections_n*-4.6830439388193685+dist2stop_n*0.0381931186278459+dist2tahoe_n*1.3518702830808909+is_towncenter*4.910893624499064+isbailey3*0.4278487727702863+isbailey4p*0.4521634391975973+job_density_n*0.2429378928371543+lval_per_sqft_n*-1.7905549218503176+mix_entropy*1.3249997996867728+neighbors_FAR*-1.0724311009002574+neighbors_age_n*2.9504328070176857+neighbors_per_built*0.3857651806684107+pop_density_n*0.2801551462250794"
+    capacity_fn:  "usableland*767/43560"  #767 is the max of block group job density jobs/land acre
 
 # these lines are passed to DataFrame.eval() after allocation
 update_block: [
