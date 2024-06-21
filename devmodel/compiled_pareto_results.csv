@@ -1,0 +1,86 @@
+,Model_000000,Model_000001,Model_000002,Model_000003
+Number of estimated parameters,14,36,69,25
+Sample size,1662,1662,1662,1662
+Final log likelihood,-2785.6494835844023,-2666.937756115682,-2628.128401923233,-2725.685203037715
+Akaike Information Criterion,5599.298967168805,5405.875512231364,5394.256803846466,5501.37040607543
+Bayesian Information Criterion,5675.1198448246205,5600.843483346318,5767.945415150129,5636.764830460815
+B_IPES_SCORE_n (t-test),0.291  (2.87),0.287  (2.75),0.294  (2.78),0.286  (2.79)
+B_cnt_intersections_n (t-test),0.8  (3.68),0.994  (4.51),0.998  (4.52),0.932  (4.3)
+B_dist2stop_n (t-test),-0.00408  (-4.36),-0.00387  (-3.94),-0.00386  (-3.93),-0.00416  (-4.38)
+B_dist2tahoe_n (t-test),2.65  (8.8),2.84  (9.13),2.84  (9.12),2.62  (8.54)
+B_is_towncenter (t-test),-0.343  (-1.93),-1.2  (-5.56),-1.2  (-5.55),-0.665  (-3.51)
+B_isbailey3 (t-test),0.425  (3.34),0.428  (3.31),0.428  (3.29),0.426  (3.32)
+B_isbailey4p (t-test),0.439  (5.68),0.452  (5.8),0.444  (5.6),0.444  (5.73)
+B_job_density_n (t-test),0.5  (5.94),0.601  (6.55),0.601  (6.56),0.477  (5.39)
+B_lval_per_sqft_n (t-test),9.9  (49.6),10.1  (49.6),10.1  (49.6),10.1  (49.9)
+B_mix_entropy (t-test),-0.915  (-4.88),-0.988  (-4.99),-0.988  (-4.99),-1.01  (-5.29)
+B_neighbors_FAR (t-test),-3.28  (-10.7),-3.65  (-10.6),-3.66  (-10.6),-3.39  (-10.6)
+B_neighbors_age_n (t-test),1.14  (4.84),1.33  (5.41),1.34  (5.41),1.22  (5.2)
+B_neighbors_per_built (t-test),1.95  (14),2.15  (14.7),2.15  (14.7),1.99  (14.1)
+B_pop_density_n (t-test),0.112  (1.76),-0.00459  (-0.0686),-0.00435  (-0.065),0.0672  (1.05)
+B_cnt_intersections_n_MF (t-test),,-0.894  (-0.668),-0.153  (-0.128),
+B_cnt_intersections_n_NR (t-test),,-4.68  (-2.4),,-4.62  (-2.37)
+B_dist2stop_n_MF (t-test),,-0.0118  (-2.34),-0.0172  (-2.65),
+B_dist2stop_n_NR (t-test),,0.0382  (2.05),,0.0385  (2.06)
+B_dist2tahoe_n_MF (t-test),,-14.5  (-1.73),-14.3  (-1.41),
+B_dist2tahoe_n_NR (t-test),,1.35  (0.406),,1.56  (0.471)
+B_is_towncenter_MF (t-test),,3.04  (5.91),0.67  (0.693),
+B_is_towncenter_NR (t-test),,4.91  (4.73),,4.37  (4.24)
+B_job_density_n_MF (t-test),,-0.605  (-1.42),-0.214  (-0.509),
+B_job_density_n_NR (t-test),,0.243  (0.504),,0.367  (0.761)
+B_lval_per_sqft_n_MF (t-test),,-1.31  (-1.31),-2.06  (-1.83),
+B_lval_per_sqft_n_NR (t-test),,-1.79  (-1.2),,-1.73  (-1.16)
+B_mix_entropy_MF (t-test),,-1.15  (-0.839),-0.328  (-0.203),
+B_mix_entropy_NR (t-test),,1.32  (0.681),,1.35  (0.694)
+B_neighbors_FAR_MF (t-test),,3.4  (4.02),1.41  (0.79),
+B_neighbors_FAR_NR (t-test),,-1.07  (-0.443),,-1.33  (-0.552)
+B_neighbors_age_n_MF (t-test),,-0.599  (-0.772),0.948  (0.943),
+B_neighbors_age_n_NR (t-test),,2.95  (2.91),,3.05  (3.02)
+B_neighbors_per_built_MF (t-test),,-3.09  (-6.18),0.423  (0.528),
+B_neighbors_per_built_NR (t-test),,0.386  (0.351),,0.551  (0.502)
+B_pop_density_n_MF (t-test),,0.817  (2.74),0.802  (2.56),
+B_pop_density_n_NR (t-test),,0.28  (0.942),,0.209  (0.704)
+B_cnt_intersections_n_COM (t-test),,,-4.42  (-1.86),
+B_cnt_intersections_n_Con (t-test),,,-6.92  (-2.51),
+B_cnt_intersections_n_PUB (t-test),,,11.6  (3.45),
+B_cnt_intersections_n_Tour (t-test),,,6.81  (2.08),
+B_dist2stop_n_COM (t-test),,,0.0606  (4.01),
+B_dist2stop_n_Con (t-test),,,-0.00757  (-0.708),
+B_dist2stop_n_PUB (t-test),,,1.45  (2.23),
+B_dist2stop_n_Tour (t-test),,,-0.0357  (-4.16),
+B_dist2tahoe_n_COM (t-test),,,8.94  (2.55),
+B_dist2tahoe_n_Con (t-test),,,-10.7  (-3.21),
+B_dist2tahoe_n_PUB (t-test),,,1.08  (5),
+B_dist2tahoe_n_Tour (t-test),,,-6.18  (-3.14),
+B_is_towncenter_COM (t-test),,,4.63  (4.01),
+B_is_towncenter_Con (t-test),,,6.33  (2.77),
+B_is_towncenter_PUB (t-test),,,-0.000306  (-1.7e-312),
+B_is_towncenter_Tour (t-test),,,-0.00219  (-0.00152),
+B_job_density_n_COM (t-test),,,0.144  (0.307),
+B_job_density_n_Con (t-test),,,0.523  (0.407),
+B_job_density_n_PUB (t-test),,,0.0612  (5.37e+06),
+B_job_density_n_Tour (t-test),,,-0.0471  (-0.0143),
+B_lval_per_sqft_n_COM (t-test),,,-0.844  (-0.502),
+B_lval_per_sqft_n_Con (t-test),,,5.66  (1.28),
+B_lval_per_sqft_n_PUB (t-test),,,4.62  (2.31),
+B_lval_per_sqft_n_Tour (t-test),,,12.3  (4.96),
+B_mix_entropy_COM (t-test),,,2.83  (1.53),
+B_mix_entropy_Con (t-test),,,-3.29  (-1.22),
+B_mix_entropy_PUB (t-test),,,-50.1  (-7.01),
+B_mix_entropy_Tour (t-test),,,10.3  (13.8),
+B_neighbors_FAR_COM (t-test),,,-0.18  (-0.0873),
+B_neighbors_FAR_Con (t-test),,,3.16  (1.89),
+B_neighbors_FAR_PUB (t-test),,,2.14  (5.54),
+B_neighbors_FAR_Tour (t-test),,,-2.67  (-0.412),
+B_neighbors_age_n_COM (t-test),,,2.93  (3.03),
+B_neighbors_age_n_Con (t-test),,,-2.65  (-2.32),
+B_neighbors_age_n_PUB (t-test),,,-2.38  (-7.21),
+B_neighbors_age_n_Tour (t-test),,,0.454  (4.87),
+B_neighbors_per_built_COM (t-test),,,-0.373  (-0.321),
+B_neighbors_per_built_Con (t-test),,,-4.98  (-4.48),
+B_neighbors_per_built_PUB (t-test),,,1.74  (2.59),
+B_neighbors_per_built_Tour (t-test),,,9.91  (4.57),
+B_pop_density_n_COM (t-test),,,0.569  (1.66),
+B_pop_density_n_Con (t-test),,,0.919  (1.02),
+B_pop_density_n_PUB (t-test),,,-14.7  (-7.1),
+B_pop_density_n_Tour (t-test),,,-4.7  (-11.6),
